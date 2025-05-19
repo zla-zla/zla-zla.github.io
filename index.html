@@ -1,1 +1,210 @@
-<h1>论文展示demo页面</h1>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+</head>
+
+<body>
+<h2>Demos for <i>&quot;High-capacity Generative Image Steganography Approach for Hiding Multiple Secret Images;</i>.</h2>
+<p>Authors: Xiyao Liu, Li'an Zhong, Xiangui Kang, Gerald Schaefer, Da Huang, Ziping Ma</a></p>
+<p>Abstract: Current high-capacity image steganography methods face challenges in balancing hidden capacity, imperceptibility, and recovery quality. While embedding-based approaches enable full-image hiding, they tend to produce detectable artifacts under high payloads, whereas existing generative methods struggle to conceal full-sized secret images and often generate unrealistic stego images. This paper proposes a novel generative steganography approach to address these dilemmas, securely hiding four full-sized secret images into a single realistic stego image while maintaining security. Our key innovations include: (1) a meticulously designed autoencoder to compress and inject secret images into the shallow layer of the generator; (2) a three-stage optimization strategy for stable training; and (3) an automatic image selection procedure to enhance security. Experimental results demonstrate that when hiding four images, our method achieves a PSNR of 30.45 dB between secret and reconstructed images, while maintaining a steganalysis accuracy of 50\% (equivalent to random guessing), significantly outperforming existing embedding-based methods in security. Compared to existing generative approaches, our method achieves higher hidden capacity while preserving superior visual quality of stego-images, with a FID of 6.97, surpassing the suboptimal method's FID of 22.72. To the best of our knowledge, this is the first generative image steganography to achieve four image hiding without compromising realism or security, addressing limitations in both embedding and generative paradigms.</p>
+  
+<hr />
+
+<h3>1. Comparison of Cover/Stego Audio Pairs</h3>
+
+<p><font color="#0000FF"  >
+    <strong>Note:</strong><br>
+    - <strong>Cover Audio</strong> denotes the original cover audio used to conceal secret.<br>
+    - <strong>Stego Audio (LSB)</strong> refers to stego audio produced using the traditional 8-bit Least Significant Bit (LSB) methods.<br>
+    - <strong>Stego Audio (Freq. Chop)</strong> denotes audio where the method involved concatenating the upper frequency portion of the secret audio with the lower frequency portion of the cover audio to generate the stego audio. This method is a naïve baseline approach.<br>
+    - <strong>Stego Audio (Hide & Speak)</strong> refers to stego audio created using a deep-learning-based steganography approach, described in [3]. Both the model for this method and our proposed model were trained using the same dataset to ensure a fair comparison.<br>
+    - <strong>Stego Audio (Proposed)</strong> refers to stego audio created using our method.
+</font>
+</p>
+<table width="800" border="1">
+  <tr>
+    <td>Datasets</td>
+    <td>Cover Audio</br><i>Groundtruth</i></td>
+    <td>Stego Audio</br><i>LSB</i></td>
+    <td>Stego Audio</br><i>Freq. Chop</i></td>
+    <td>Stego Audio</br><i>Hide & Speak</i></td>
+    <td>Stego Audio</br><b><i>Proposed</i></b></td>
+  </tr>
+  <tr>
+    <td><i>VCTK</i> 24kHz</td>
+    <td>
+      <img src="spec/vctk24_cover.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_stego_lsb.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_stego_fc.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_stego_hns.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_stego_our.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>
+      <audio  controls style="width: 250px;" src="audio/vctk24_cover.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_stego_lsb.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_stego_fc.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_stego_hns.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_stego_our.wav" controls="controls"></audio >
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td><i>Libri</br>Speech</i> 16kHz</td>
+    <td>
+      <img src="spec/libri_cover.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_stego_lsb.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_stego_fc.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_stego_hns.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_stego_our.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>
+      <audio  controls style="width: 250px;" src="audio/libri_cover.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/libri_stego_lsb.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/libri_stego_fc.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/libri_stego_hns.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/libri_stego_our.wav" controls="controls"></audio >
+    </td>
+  </tr>
+</table>
+
+<h3>2. Comparison of Secret/Recovered Secret Audio Pairs</h3>
+<p><font color="#0000FF"  >
+    <strong>Note:</strong><br>
+    - <strong>Secret Audio</strong> represents the original secret audio.<br>
+    - <strong>Recovered Secret Audio</strong> denotes the secret audio that has been extracted from the stego audio.
+</font>
+</p>
+<table width="800" border="1">
+  <tr>
+    <td>Datasets</td>
+    <td>Secret Audio</br><i>Groundtruth</i></td>
+    <td>Recovered Secret Audio</br><i>LSB</i></td>
+    <td>Recovered Secret Audio</br><i>Freq. Chop</i></td>
+    <td>Recovered Secret Audio</br><i>Hide & Speak</i></td>
+    <td>Recovered Secret Audio</br><i><b>Proposed</b></i></td>
+  </tr>
+  <tr>
+    <td><i>VCTK</i> 24kHz</td>
+    <td>
+      <img src="spec/vctk24_secret.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_secrev_lsb.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_secrev_fc.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_secrev_hns.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/vctk24_secrev_our.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_secret.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_secrev_lsb.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_secrev_fc.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_secrev_hns.wav" controls="controls"></audio >
+    </td>
+    <td>
+      <audio  controls style="width: 250px;"src="audio/vctk24_secrev_our.wav" controls="controls"></audio >
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td><i>Libri</br>Speech</i> 16kHz</td>
+    <td>
+      <img src="spec/libri_secret.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_secrev_lsb.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_secrev_fc.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_secrev_hns.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+    <td>
+      <img src="spec/libri_secrev_our.png" controls="controls" width="250px" height="134px"></img>
+    </td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>
+        <audio  controls style="width: 250px;"src="audio/libri_secret.wav" controls="controls"></audio >
+    </td>
+    <td>
+        <audio  controls style="width: 250px;"src="audio/libri_secrev_lsb.wav" controls="controls"></audio >
+    </td>
+    <td>
+        <audio  controls style="width: 250px;"src="audio/libri_secrev_fc.wav" controls="controls"></audio >
+    </td>
+    <td>
+        <audio  controls style="width: 250px;"src="audio/libri_secrev_hns.wav" controls="controls"></audio >
+    </td>
+    <td>
+        <audio  controls style="width: 250px;"src="audio/libri_secrev_our.wav" controls="controls"></audio >
+    </td>
+  </tr>
+
+
+</table>
+
+
+</body>
+</html>
