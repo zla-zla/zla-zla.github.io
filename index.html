@@ -5,22 +5,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>demo</title>
   <style>
-    embed {
-      display: block;
-      width: 100%;
-      height: auto;
+    /* 定义一个居中图片的类 */
+    .center-image {
+      display: block;        /* 使 img 成为块级元素，才能使用 margin 自动水平居中 */
+      margin: 0 auto;        /* 上下外边距 0，左右自动 */
+      /* 以下两行可选：当容器宽度小于图片原始宽度时，图片会自动缩放以适应容器 */
+      max-width: 50%;       /* 不超过父容器宽度 */
+      height: auto;          /* 保持纵横比 */
     }
   </style>
 </head>
 
 <body>
-<h2>Demos for <i>&quot;High-capacity Generative Image Steganography Approach for Hiding Multiple Secret Images;</i>.</h2>
+<h1>Demos for <i>&quot;High-capacity Generative Image Steganography Approach for Hiding Multiple Secret Images&quot;</i>.</h2>
 <p>Authors: Xiyao Liu, Li'an Zhong, Xiangui Kang, Gerald Schaefer, Da Huang, Ziping Ma</a></p>
 <p>Abstract: Current high-capacity image steganography methods face challenges in balancing hidden capacity, imperceptibility, and recovery quality. While embedding-based approaches enable full-image hiding, they tend to produce detectable artifacts under high payloads, whereas existing generative methods struggle to conceal full-sized secret images and often generate unrealistic stego images. This paper proposes a novel generative steganography approach to address these dilemmas, securely hiding four full-sized secret images into a single realistic stego image while maintaining security. Our key innovations include: (1) a meticulously designed autoencoder to compress and inject secret images into the shallow layer of the generator; (2) a three-stage optimization strategy for stable training; and (3) an automatic image selection procedure to enhance security. Experimental results demonstrate that when hiding four images, our method achieves a PSNR of 30.45 dB between secret and reconstructed images, while maintaining a steganalysis accuracy of 50% (equivalent to random guessing), significantly outperforming existing embedding-based methods in security. Compared to existing generative approaches, our method achieves higher hidden capacity while preserving superior visual quality of stego-images, with a FID of 6.97, surpassing the suboptimal method's FID of 22.72. To the best of our knowledge, this is the first generative image steganography to achieve four image hiding without compromising realism or security, addressing limitations in both embedding and generative paradigms.</p>
   
 <hr />
 
-<h3>1. image examples of secret/recovered image pairs compared with embedding-based methods</h3>
+<h2>1. Image examples of secret/recovered image pairs compared with embedding-based methods</h3>
 
 <p><font color="#0000FF"  >
     <strong>Note:</strong><br>
@@ -33,21 +36,32 @@
   </font>
 </p>
 
-<h4>1.1 image examples of secret/recovered image pairs when hiding one secret image</h4>
-<embed src="imgs\secret_one.pdf" type="application/pdf" style="width: 100%">
+<h4>Image examples of secret/recovered image pairs when hiding one secret image:</h4>
+<img src="imgs/one.jpg" alt="示例图片" class="center-image" />
 
-<h4>1.2 image examples of secret/recovered image pairs when hiding one secret image</h4>
-<embed src="imgs\secret_two.pdf" type="application/pdf" style="width: 100%">
+<h4>Image examples of secret/recovered image pairs when hiding one secret image:</h4>
+<img src="imgs/two.jpg" alt="示例图片" class="center-image" />
 
-<h4>1.3 image examples of secret/recovered image pairs when hiding one secret image</h4>
-<embed src="imgs\secret_three.pdf" type="application/pdf" style="width: 100%">
+<h4>Image examples of secret/recovered image pairs when hiding one secret image:</h4>
+<img src="imgs/three.jpg" alt="示例图片" class="center-image" />
 
-<h4>1.4 image examples of secret/recovered image pairs when hiding one secret image</h4>
-<embed src="imgs\secret_four.pdf" type="application/pdf" style="width: 100%">
+<h4>Image examples of secret/recovered image pairs when hiding one secret image:</h4>
+<img src="imgs/four.jpg" alt="示例图片" class="center-image" />
 
-<h3>2. image examples of stego images compared with generative-based methods</h3>
-<!-- <embed src="imgs\secret_one.pdf" type="application/pdf" width="600" height="800"> -->
-<embed src="imgs\secret_four.pdf" type="application/pdf" style="width: 100%">
+
+<hr />
+<h2>2. Image examples of stego images compared with generative-based methods</h3>
+
+<p><font color="#0000FF"  >
+    <strong>Note:</strong><br>
+    - <strong>DCGAN:</strong> Hu D, Wang L, Jiang W, et al. A novel image steganography method via deep convolutional generative adversarial networks[J]. IEEE access, 2018, 6: 38303-38314.<br>
+    - <strong>SSteGAN:</strong> Wang Z, Gao N, Wang X, et al. SSteGAN: Self-learning steganography based on generative adversarial networks[C]//Neural Information Processing: 25th International Conference, ICONIP 2018, Siem Reap, Cambodia, December 13–16, 2018, Proceedings, Part II 25. Springer International Publishing, 2018: 253-264.<br>
+    - <strong>GDA-Steg:</strong> Peng F, Chen G, Long M. A robust coverless steganography based on generative adversarial networks and gradient descent approximation[J]. IEEE Transactions on Circuits and Systems for video technology, 2022, 32(9): 5817-5829.<br>
+    - <strong>CIS-Net:</strong> You Z, Ying Q, Li S, et al. Image generation network for covert transmission in online social network[C]//Proceedings of the 30th ACM International Conference on Multimedia. 2022: 2834-2842.<br>
+  </font>
+</p>
+
+<img src="imgs/generate.jpg" alt="示例图片" class="center-image" />
 
 
 </body>
